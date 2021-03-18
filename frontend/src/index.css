@@ -1,0 +1,24 @@
+main {
+  min-height: 80vh;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+h3 {
+  padding: 1rem 0 0;
+}
+
+.cartItem-brand, .placeorder-name {
+  font-weight: 500 !important;
+  color: black;
+}
+
+.cart-icon {
+  font-size: 13px !important;
+}
+
+.icon-light {
+  color: white;
+}
