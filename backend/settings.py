@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import django_heroku
 from pathlib import Path
 from datetime import timedelta
 
@@ -132,9 +132,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# if os.getcwd() == '/app':
+
 
 DATABASES = {
     'default': {
+        'DATABASE_URL': os.environ.get('DB_ENGINE'),
         'ENGINE': os.environ.get('DB_ENGINE'),
         'NAME': os.environ.get('DB_USER'),
         'USER': os.environ.get('DB_USER'),
@@ -200,3 +203,5 @@ CORS_ALLOW_ALL_ORIGINS = True
 #if os found our app is in live mode (heroku), set DEBUG to false. 
 if os.getcwd() == '/app':
     DEBUG = False
+
+django_heroku.settings(locals())    
