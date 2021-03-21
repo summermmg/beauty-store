@@ -193,6 +193,7 @@ STATIC_URL = '/static/'
 #The MEDIA_URL is the URL that makes the static media accessible over HTTP.
 MEDIA_URL = '/images/' 
 
+
 #The static files will be stored in static folder
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
@@ -202,8 +203,6 @@ STATICFILES_DIRS = [
 #Once the app in production, and DEBUG set to false, Django will look into STATIC_ROOT folder to find static files.
 MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CORS_ALLOW_ALL_ORIGINS = True
 

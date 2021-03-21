@@ -145,10 +145,10 @@ const AdminProductListScreen = ({history}) => {
                             <Form.Label>Category</Form.Label>
                             <Form.Control value={category} name='category' onChange={(e) => setCategory(e.target.value)} type="text" required/>
                         </Form.Group>
-                        <Form.Group className="my-2">
+                        {/* <Form.Group className="my-2">
                             <Form.Label>Please upload product image</Form.Label>
                             <Form.File id="image" onChange={onImageChange} required/>
-                        </Form.Group>
+                        </Form.Group> */}
                         <Form.Group className="my-2" controlId="description">
                             <Form.Label>Description</Form.Label>
                             <Form.Control value={description} name='description' onChange={(e) => setDescription(e.target.value)} as="textarea" rows={3} required/>

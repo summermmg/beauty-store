@@ -7,6 +7,7 @@ import Loader from '../components/Loader'
 import {fetchProduct,createProductReview} from '../actions/productActions'
 import {addItemToCart} from '../actions/cartActions'
 import ErrorMessage from '../components/ErrorMessage'
+import {data} from '../data.js'
 
 const ProductScreen = ({ match }) => {
     const [rating, setRating] = useState(0)

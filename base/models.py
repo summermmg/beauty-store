@@ -6,7 +6,7 @@ class Product(models.Model):
     #a many-to-one relationship. Do not delete product when the parent user was deleted. User is required when creating the product.
     user = models.ForeignKey(User, on_delete=models.SET_NULL,null=True) 
     name = models.CharField(max_length=150, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, default='/sample.jpg')
     brand = models.CharField(max_length=150, null=True, blank=True)
     category = models.CharField(max_length=150, null=True, blank=True)
     size = models.CharField(max_length=150, null=True, blank=True)
