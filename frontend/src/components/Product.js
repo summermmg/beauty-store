@@ -12,8 +12,8 @@ const Product = ({ product }) => {
             <Link to={`/product/${product._id}`}>
                 {/* get image from backend */}
                 {/* <Card.Img src={product.image} /> */}
-                {/* get image from frontend */}
-                <Card.Img src={data[product._id-4].image} />
+                {/* get image url from frontend */}
+                <Card.Img src={data[product._id-5].image} />
             </Link>
             <Card.Body>
             <Link to={`/product/${product._id}`}>

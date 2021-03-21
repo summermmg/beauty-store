@@ -70,7 +70,8 @@ const ProductScreen = ({ match }) => {
         <Link to="/" className="btn btn-light my-3">Go Back</Link> 
         <Row>
             <Col sm={8} md={4}>
-                <Image src={product.image} alt={product.name} fluid thumbnail />
+                {/* <Image src={product.image} alt={product.name} fluid thumbnail /> */}
+                <Image src={data[product._id-5].image} alt={product.name} fluid thumbnail />
             </Col>
             <Col md={4}>
                 <ListGroup variant="flush">

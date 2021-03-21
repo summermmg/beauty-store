@@ -117,7 +117,7 @@ const OrderDetailScreen = ({match,history}) => {
                                                 <Row>
                                                     <Col md={3} sm={4}>
                                                         <LinkContainer to={`/Product/${orderItem.product}`}>
-                                                            <Image src={orderItem.image} alt={orderItem.name} fluid />
+                                                            <Image src={`/static${orderItem.image}`} alt={orderItem.name} fluid />
                                                         </LinkContainer> 
                                                     </Col>
                                                     <Col className="placeorder-name" md={4}>{orderItem.name}</Col>
