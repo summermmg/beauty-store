@@ -33,8 +33,8 @@ const CartScreen = ({history}) => {
                                         <Row className="mt-3">
                                             <Col sm={5} md={4} lg={2}>
                                                 <LinkContainer to={`/Product/${cartItem._id}`}>
-                                                    {/* Image get from frontend */}
-                                                    <Image src={`/static${cartItem.image}`} alt={cartItem.name} fluid />
+                                                    <Image src={cartItem.image} alt={cartItem.name} fluid />
+                                                    {/* <Image src={`/static${cartItem.image}`} alt={cartItem.name} fluid /> */}
                                                 </LinkContainer> 
                                             </Col>
                                             <Col sm={3} md={4} lg={3}><Row className="cartItem-brand">{cartItem.brand}</Row><Row>{cartItem.name}</Row></Col>
