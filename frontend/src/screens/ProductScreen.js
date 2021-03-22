@@ -7,7 +7,6 @@ import Loader from '../components/Loader'
 import {fetchProduct,createProductReview} from '../actions/productActions'
 import {addItemToCart} from '../actions/cartActions'
 import ErrorMessage from '../components/ErrorMessage'
-import {data} from '../data.js'
 
 const ProductScreen = ({ match }) => {
     const [rating, setRating] = useState(0)
@@ -70,8 +69,7 @@ const ProductScreen = ({ match }) => {
         <Link to="/" className="btn btn-light my-3">Go Back</Link> 
         <Row>
             <Col sm={8} md={4}>
-                {/* <Image src={product.image} alt={product.name} fluid thumbnail /> */}
-                <Image src={data[product._id-5].image} alt={product.name} fluid thumbnail />
+                <Image src={`/static${product.image}`} alt={product.name} fluid thumbnail />
             </Col>
             <Col md={4}>
                 <ListGroup variant="flush">

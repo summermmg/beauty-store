@@ -122,7 +122,6 @@ const PlaceOrderScreen = ({history}) => {
                                             <Row>
                                                 <Col sm={4} md={4}>
                                                     <LinkContainer to={`/Product/${cartItem._id}`}>
-                                                        {/* Image get from frontend */}
                                                         <Image src={`/static${cartItem.image}`} alt={cartItem.name} fluid />
                                                     </LinkContainer> 
                                                 </Col>

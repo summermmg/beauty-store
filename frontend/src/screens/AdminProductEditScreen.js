@@ -99,10 +99,10 @@ const AdminProductEditScreen = ({match,history}) => {
                         <Form.Label>Category</Form.Label>
                         <Form.Control value={category} name='category' onChange={(e) => setCategory(e.target.value)} type="text" />
                     </Form.Group>
-                    <Form.Group className="my-2" className="my-4">
+                    {/* <Form.Group className="my-2" className="my-4">
                         <Form.Label>{`Currently: ${product.image}`}</Form.Label>
                         <Form.File id="image" onChange={onImageChange} />
-                    </Form.Group>
+                    </Form.Group> */}
                     <Form.Group className="my-2" controlId="description">
                         <Form.Label>Description</Form.Label>
                         <Form.Control value={description} name='description' onChange={(e) => setDescription(e.target.value)} as="textarea" rows={3} />

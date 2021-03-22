@@ -2,7 +2,6 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import Rating from './Rating'
 import { Link } from 'react-router-dom'
-import {data} from '../data.js'
 
 
 const Product = ({ product }) => {
@@ -10,10 +9,7 @@ const Product = ({ product }) => {
     return (
         <Card className="my-3 p-3 rounded" >
             <Link to={`/product/${product._id}`}>
-                {/* get image from backend */}
-                {/* <Card.Img src={product.image} /> */}
-                {/* get image url from frontend */}
-                <Card.Img src={data[product._id-5].image} />
+                <Card.Img src={`/static${product.image}`} />
             </Link>
             <Card.Body>
             <Link to={`/product/${product._id}`}>
