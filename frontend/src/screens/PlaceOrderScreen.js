@@ -39,39 +39,31 @@ const PlaceOrderScreen = ({history}) => {
         history.push('/login')
     }
 
-    //PayPal button disabled for live demo
-    // const addPayPalScript = () => {
-    //     const script = document.createElement('script')
-    //     script.type = 'text/javascript'
-    //     script.id = 'paypalButtons'
-    //     script.src =  "https://www.paypal.com/sdk/js?client-id=test"
-    //     script.async = true
-    //     document.body.appendChild(script)
-    //     script.onload = () => {
-    //         //the local state SdkReady is like a toggle of showing the third party PayPal button. 
-    //         setSdkReady(true) 
-    //     }        
-    // }
+    const addPayPalScript = () => {
+        const script = document.createElement('script')
+        script.type = 'text/javascript'
+        script.id = 'paypalButtons'
+        script.src =  "https://www.paypal.com/sdk/js?client-id=test"
+        script.async = true
+        document.body.appendChild(script)
+        script.onload = () => {
+            //the local state SdkReady is like a toggle of showing the third party PayPal button. 
+            setSdkReady(true) 
+        }        
+    }
 
-    // useEffect(() => {
-    //     const paypalScript = document.getElementById('paypalButtons')
-    //     if (!paypalScript) {
-    //         addPayPalScript()
-    //     } else if (success) {
-    //         history.push(`/order/${order._id}`)
-    //         dispatch({ type: ORDER_CREATE_RESET })
-    //     } else {
-    //         setSdkReady(true)
-    //     } 
-    // }, [success, history,order])
-
-    //place order function for live demo
     useEffect(() => {
-        if (success) {
+        const paypalScript = document.getElementById('paypalButtons')
+        if (!paypalScript) {
+            addPayPalScript()
+        } else if (success) {
             history.push(`/order/${order._id}`)
             dispatch({ type: ORDER_CREATE_RESET })
-        }
+        } else {
+            setSdkReady(true)
+        } 
     }, [success, history,order])
+
 
     const createOrderWithoutPayHandler = () => {
         dispatch(createOrder({
@@ -87,18 +79,18 @@ const PlaceOrderScreen = ({history}) => {
     }
 
 
-    // const createOrderPaidHandler = (paypalResponseName) => {
-    //     dispatch(createOrder({
-    //         orderItems: cart,
-    //         shipping: shippingInfo,
-    //         paymentMethod: paymentMethod,
-    //         itemsPrice: cartInfo.itemsPrice,
-    //         taxPrice: cartInfo.taxPrice,
-    //         shippingPrice: cartInfo.shippingPrice,
-    //         totalPrice: cartInfo.totalPrice,
-    //         ispaid: 'now', 
-    //     }))
-    // }
+    const createOrderPaidHandler = (paypalResponseName) => {
+        dispatch(createOrder({
+            orderItems: cart,
+            shipping: shippingInfo,
+            paymentMethod: paymentMethod,
+            itemsPrice: cartInfo.itemsPrice,
+            taxPrice: cartInfo.taxPrice,
+            shippingPrice: cartInfo.shippingPrice,
+            totalPrice: cartInfo.totalPrice,
+            ispaid: 'now', 
+        }))
+    }
 
     return (
         <div className="mt-4">
@@ -122,7 +114,8 @@ const PlaceOrderScreen = ({history}) => {
                                             <Row>
                                                 <Col sm={4} md={4}>
                                                     <LinkContainer to={`/Product/${cartItem._id}`}>
-                                                        <Image src={`/static${cartItem.image}`} alt={cartItem.name} fluid />
+                                                        <Image src={cartItem.image} alt={cartItem.name} fluid />                                                        
+                                                        {/* <Image src={`/static${cartItem.image}`} alt={cartItem.name} fluid /> */}
                                                     </LinkContainer> 
                                                 </Col>
                                                 <Col className="placeorder-name" md={4}>{cartItem.name}</Col>
@@ -169,7 +162,7 @@ const PlaceOrderScreen = ({history}) => {
                                 </Row> 
                             </ListGroupItem>
                             
-                            {/* {sdkReady ? 
+                            {sdkReady ? 
                             <ListGroupItem> 
                                 <PayPalButton                                    
                                     amount={cartInfo.totalPrice}
@@ -178,11 +171,8 @@ const PlaceOrderScreen = ({history}) => {
                             </ListGroupItem>
                            
                             : <Loader /> 
-                            } */}
+                            }
                             
-                            <ListGroupItem>
-                                <ErrorMessage variant='warning'>PayPal buttons are disabled for live demo.</ErrorMessage>
-                            </ListGroupItem>
                             <ListGroupItem>
                                 <Row>
                                     <Col>

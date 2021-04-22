@@ -32,33 +32,33 @@ const OrderDetailScreen = ({match,history}) => {
         history.push('/login')
     }
 
-    // const addPayPalScript = () => {
-    //     const script = document.createElement('script')
-    //     script.type = 'text/javascript'
-    //     script.id = 'paypalButtons'
-    //     script.src =  "https://www.paypal.com/sdk/js?client-id=test"
-    //     script.async = true
-    //     document.body.appendChild(script)
-    //     script.onload = () => {
-    //         //the local state SdkReady is like a toggle of showing the third party PayPal button. 
-    //         setSdkReady(true) 
-    //     }        
-    // }
+    const addPayPalScript = () => {
+        const script = document.createElement('script')
+        script.type = 'text/javascript'
+        script.id = 'paypalButtons'
+        script.src =  "https://www.paypal.com/sdk/js?client-id=test"
+        script.async = true
+        document.body.appendChild(script)
+        script.onload = () => {
+            //the local state SdkReady is like a toggle of showing the third party PayPal button. 
+            setSdkReady(true) 
+        }        
+    }
 
     
     //fetch order detail by orderId only when the current state doesn't have orderDetail or doesn't match with the target order    
-    // useEffect(() => {
-    //     const paypalScript = document.getElementById('paypalButtons')
-    //     if (!order || successPay ||successDelivered || orderId !== order._id) {
-    //         dispatch(getOrderDetail(orderId))
-    //     } else if (!order.isPaid) {
-    //         if (!paypalScript) {
-    //             addPayPalScript()
-    //         } else {
-    //             setSdkReady(true)
-    //         }
-    //     }
-    // }, [order,orderId,successPay,successDelivered])
+    useEffect(() => {
+        const paypalScript = document.getElementById('paypalButtons')
+        if (!order || successPay ||successDelivered || orderId !== order._id) {
+            dispatch(getOrderDetail(orderId))
+        } else if (!order.isPaid) {
+            if (!paypalScript) {
+                addPayPalScript()
+            } else {
+                setSdkReady(true)
+            }
+        }
+    }, [order,orderId,successPay,successDelivered])
 
     useEffect(() => {
         if (!order || successDelivered || orderId !== order._id) {
@@ -117,7 +117,8 @@ const OrderDetailScreen = ({match,history}) => {
                                                 <Row>
                                                     <Col md={3} sm={4}>
                                                         <LinkContainer to={`/Product/${orderItem.product}`}>
-                                                            <Image src={`/static${orderItem.image}`} alt={orderItem.name} fluid />
+                                                            <Image src={orderItem.image} alt={orderItem.name} fluid />
+                                                            {/* <Image src={`/static${orderItem.image}`} alt={orderItem.name} fluid /> */}
                                                         </LinkContainer> 
                                                     </Col>
                                                     <Col className="placeorder-name" md={4}>{orderItem.name}</Col>
@@ -180,7 +181,7 @@ const OrderDetailScreen = ({match,history}) => {
                         {deliverError && (<ErrorMessage variant="danger">{deliverError}</ErrorMessage>)}            
 
                         {/* If the user is not the one who created the order, Paypal buttons won't show*/}
-                        {/* {!order.isPaid && (order.user.id === userInfo.id) && (
+                        {!order.isPaid && (order.user.id === userInfo.id) && (
                             <div className="my-3">
                                 {loadingPay && (
                                     <Loader />
@@ -194,10 +195,7 @@ const OrderDetailScreen = ({match,history}) => {
                                             />
                                         : <Loader /> }
                             </div>
-                        )} */}
-                        <ListGroupItem>
-                            <ErrorMessage variant='warning'>PayPal buttons are disabled for live demo.</ErrorMessage>
-                        </ListGroupItem>
+                        )}
 
                         <Row>                            
                             <Col><Link to="/profile" className="btn btn-dark mx-5 mt-4">my orders</Link></Col>
