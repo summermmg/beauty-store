@@ -199,7 +199,7 @@ MEDIA_URL = '/images/'
 #The static files will be stored in static folder
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    BASE_DIR / 'frontend/build'
+    BASE_DIR / 'frontend/build/static'
 ]
 #The MEDIA_ROOT is the path on the filesystem to the directory containing your static media.
 #Once the app in production, and DEBUG set to false, Django will look into STATIC_ROOT folder to find static files.
