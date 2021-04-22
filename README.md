@@ -8,12 +8,12 @@
   - [Setup](#setup)
 
 ## General info
-A full-stack eCommerce website built with React, Django DRF and PostgreSQL database.
-[View Demo Video ✨](https://youtube.com) 
-[Live Demo](https://summerbeautystore.herokuapp.com) 
+A full-stack eCommerce website built with React, Django DRF and PostgreSQL database.  
+[View Demo Video ✨](https://youtu.be/CAYvYxYgBu0)  
+[Live Demo](https://www.summerbeautystore.com)  
 
 ## Screenshots
-<!-- ![Example screenshot](./img/screenshot.png) -->
+<div align="center"><img src="/frontend/public/assets/beautystore_screenshot.png" width="70%" /></div>
 
 ## Technologies
 * Django version: 3.1.7
