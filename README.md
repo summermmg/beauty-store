@@ -10,7 +10,7 @@
 ## General info
 A full-stack eCommerce website built with React, Django DRF and PostgreSQL database.  
 [View Demo Video ✨](https://youtu.be/CAYvYxYgBu0)  
-[Live Demo](https://www.summerbeautystore.com)  
+[Live Demo](https://summerbeautystore.herokuapp.com/)  
 
 ## Screenshots
 <div align="center"><img src="/frontend/public/assets/beautystore_screenshot.png" width="70%" /></div>
